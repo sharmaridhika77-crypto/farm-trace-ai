@@ -27,6 +27,9 @@ if uploaded_file is not None:
         
         with st.spinner('AI analysis kar raha hai...'):
             response = model.generate_content([
+    "Identify the crop, health issues, and carbon potential in Hindi and English.",
+    image
+])
                 "Analyze this farm image. 1. Identify crop type. 2. Detect health issues. 3. Estimate carbon sequestration potential. Give output in Hindi and English.", 
                 image
             ])
