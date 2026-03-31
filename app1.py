@@ -1,6 +1,7 @@
 import streamlit as st
 import streamlit as st
 import google.generativeai as genai
+from PIL import Image
 
 # Naya Code: Secrets se key uthane ke liye
 if "GOOGLE_API_KEY" in st.secrets:
