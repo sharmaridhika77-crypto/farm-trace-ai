@@ -27,12 +27,17 @@ if uploaded_file is not None:
         
         with st.spinner('AI analysis kar raha hai...'):
             response = model.generate_content([
-    "Identify the crop, health issues, and carbon potential in Hindi and English.",
-    image
-])
-                "Analyze this farm image. 1. Identify crop type. 2. Detect health issues. 3. Estimate carbon sequestration potential. Give output in Hindi and English.", 
-                image
-            ])
+    with st.spinner("AI analysis kar raha hai..."):
+            try:
+                # Dhayan dein: Niche wali sari lines 'try:' ke andar ek hi level par honi chahiye
+                response = model.generate_content([
+                    "Analyze this farm image. 1. Identify crop type. 2. Detect health issues. 3. Estimate carbon sequestration potential. Give output in Hindi and English.",
+                    image
+                ])
+                st.write("### Analysis Result:")
+                st.write(response.text)
+            except Exception as e:
+                st.error(f"Error aaya hai: {e}")
             
             st.subheader("Results:")
             st.write(response.text)
