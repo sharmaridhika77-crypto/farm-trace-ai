@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit as st
 import google.generativeai as genai
 from PIL import Image
 
@@ -7,7 +6,7 @@ from PIL import Image
 if "GOOGLE_API_KEY" in st.secrets:
     genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 else:
-    st.error("API Key nahi mili! Settings mein check karo.")
+    st.error("API Key missing in Secrets!")
 
 # Baaki ka aapka code waisa hi rahega
 model = genai.GenerativeModel('gemini-1.5-flash')
