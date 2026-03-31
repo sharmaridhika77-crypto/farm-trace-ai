@@ -1,9 +1,15 @@
 import streamlit as st
+import streamlit as st
 import google.generativeai as genai
-from PIL import Image
 
-# 1. API Key Setup (Gemini ki key yahan dalen)
-genai.configure(api_key="YOUR_GEMINI_API_KEY")
+# Naya Code: Secrets se key uthane ke liye
+if "GOOGLE_API_KEY" in st.secrets:
+    genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
+else:
+    st.error("API Key nahi mili! Settings mein check karo.")
+
+# Baaki ka aapka code waisa hi rahega
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 st.title("🌱 Farm-Trace: AI Carbon Credit Helper")
 st.write("Apne khet ki photo upload karein aur AI se analysis paayein.")
